@@ -6,7 +6,7 @@ self.addEventListener("install", e => {
         "index.html",
         "styles.css",
         "script.js",
-        "logo.png",
+        "dreus.png",
         "manifest.json"
       ]);
     })
