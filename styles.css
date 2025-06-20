@@ -1,0 +1,15 @@
+/* Smooth toggle animations */
+#entries {
+  transition: all 0.4s ease-in-out;
+}
+
+/* Input focus styles for a softer feel */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* blue glow */
+}
+
+/* Button click animation */
+button:active {
+  transform: scale(0.97);
+}
