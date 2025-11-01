@@ -14,6 +14,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.getElementById("toggle-entries-btn");
   const sortToggleBtn = document.getElementById("sort-toggle-btn");
 
+    // Auto-fill food and fare based on selected date
+  const dateInput = document.getElementById("date");
+  const foodInput = document.getElementById("food");
+  const fareInput = document.getElementById("fare");
+
+  dateInput.addEventListener("change", () => {
+    const selectedDate = new Date(dateInput.value);
+    if (isNaN(selectedDate)) return;
+
+    const day = selectedDate.getDay(); // 0 = Sunday, 6 = Saturday
+
+    // Weekdays (Mon–Fri)
+    if (day >= 1 && day <= 5) {
+      foodInput.value = 130;
+      fareInput.value = 84;
+    } 
+    // Weekends (Sat, Sun)
+    else {
+      foodInput.value = 130;
+      fareInput.value = 0;
+    }
+  });
+
+
   let entries = [];
   let sortAscending = true;
   let entriesVisible = true;
