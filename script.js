@@ -14,28 +14,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.getElementById("toggle-entries-btn");
   const sortToggleBtn = document.getElementById("sort-toggle-btn");
 
-    // Auto-fill food and fare based on selected date
-  const dateInput = document.getElementById("date");
-  const foodInput = document.getElementById("food");
-  const fareInput = document.getElementById("fare");
+  // Auto-fill food and fare based on selected date
+const dateInput = document.getElementById("date");
+const foodInput = document.getElementById("food");
+const fareInput = document.getElementById("fare");
 
-  dateInput.addEventListener("change", () => {
-    const selectedDate = new Date(dateInput.value);
-    if (isNaN(selectedDate)) return;
+dateInput.addEventListener("change", () => {
+  if (!dateInput.value) return;
+  const [year, month, day] = dateInput.value.split("-").map(Number);
+  if (!year || !month || !day) return;
+  const selectedDate = new Date(year, month - 1, day);
 
-    const day = selectedDate.getDay(); // 0 = Sunday, 6 = Saturday
+  const dayOfWeek = selectedDate.getDay(); // 0 = Sunday, 6 = Saturday
 
-    // Weekdays (Mon–Fri)
-    if (day >= 1 && day <= 5) {
-      foodInput.value = 130;
-      fareInput.value = 84;
-    } 
-    // Weekends (Sat, Sun)
-    else {
-      foodInput.value = 130;
-      fareInput.value = 0;
-    }
-  });
+  // Weekdays (Mon–Fri)
+  if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+    foodInput.value = 130;
+    fareInput.value = 84;
+  } 
+  // Weekends (Sat, Sun)
+  else {
+    foodInput.value = 130;
+    fareInput.value = 0;
+  }
+});
+
 
 
   let entries = [];
