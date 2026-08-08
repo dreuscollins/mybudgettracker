@@ -30,7 +30,7 @@ dateInput.addEventListener("change", () => {
   // Weekdays (Mon–Fri)
   if (dayOfWeek >= 1 && dayOfWeek <= 5) {
     foodInput.value = 130;
-    fareInput.value = 50;
+    fareInput.value = 54;
   } 
   // Weekends (Sat, Sun)
   else {
